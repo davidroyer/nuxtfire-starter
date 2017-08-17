@@ -5,30 +5,31 @@
       <h1 class="title">
         NUXT
       </h1>
-      <h2 class="subtitle">
-        PWA Vue.js Application
-      </h2>
+      <ul>
+        <li v-for="(post, key) in posts" :key="key">
+        {{post.title}}
+        </li>
+      </ul>
       <div :class="['network',online ? 'online' : 'offline']">
         <div class="circle"></div>
         {{ online ? 'online' : 'offline' }}
       </div>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green" rel="noopener">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey" rel="noopener">GitHub</a>
-      </div>
+
     </div>
   </section>
 </template>
 
 <script>
   import Logo from '~/components/Logo.vue'
-  import axios from '~/plugins/axios.js'
 
   export default {
     components: {Logo},
-    async asyncData ({ params }) {
-      let { data } = await axios.get('posts')
-      return { posts: data }
+    async asyncData ({app}) {
+      let { data } = await app.axios.get('/posts')
+
+      return {
+        posts: data
+      }
     },
 
     data () {
@@ -62,12 +63,12 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    /*align-items: center;*/
+    /*text-align: center;*/
   }
 
   .title {
-    font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
     display: block;
     font-weight: 300;
     font-size: 100px;

@@ -1,10 +1,20 @@
 <template>
   <div>
-    <nuxt/>
+    <navigation></navigation>
+    <nuxt class="wrapper"/>
   </div>
 </template>
 
+<script>
+import Navigation from '@/components/Navigation'
+  export default {
+    components: {
+      Navigation
+    }
+  }
+</script>
 <style src="element-ui/lib/theme-default/index.css">
+
 /*html
 {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

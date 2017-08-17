@@ -6,8 +6,8 @@
     <el-form-item label="Post Content">
       <el-input type="textarea" v-model="post.content"></el-input>
     </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="onSubmit">Save Post</el-button>
+    <el-form-item class="buttons">
+      <el-button type="primary" class="save" @click="onSubmit">Save Post</el-button>
       <el-button>Cancel</el-button>
     </el-form-item>
   </el-form>
@@ -32,5 +32,20 @@
   }
 </script>
 
-<style lang="css">
+<style lang="scss">
+.el-form-item {
+
+  &.buttons {
+    display: flex;
+
+    .el-form-item__content {
+      margin-left: auto !important;
+    }
+
+    .save {
+      font-we: 700;
+    }
+  }
+
+}
 </style>

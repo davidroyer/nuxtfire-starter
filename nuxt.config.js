@@ -3,6 +3,9 @@ module.exports = {
   ** Build configuration
   */
   build: {},
+  env: {
+    // baseUrl: process.env.BASE_URL || 'http://localhost:5000/nuxtfireapi/us-central1/api'
+  },
   /*
   ** Headers
   ** Common headers are already provided by @nuxtjs/pwa preset
@@ -23,7 +26,15 @@ module.exports = {
   ** Modules
   */
   modules: [
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
-  plugins: ['plugins/element-ui.js']
+  proxy: [
+    ['/api', { target: 'https://nuxtfireapi.firebaseapp.com' }]
+  ],
+  plugins: ['~/plugins/element-ui.js'],
+  css: [
+    '~/assets/css/main.css'
+  ]
 }

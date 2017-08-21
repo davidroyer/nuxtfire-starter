@@ -23,12 +23,14 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "package": "yarn pre-generate && yarn generate && yarn post-generate",
+    "package2": "yarn api & yarn generate",
     "pre-generate": "yarn build && pm2 start npm --name \"nuxtapp\" -- start",
     "post-generate": "pm2 stop \"nuxtapp\"",
     "close": "exit",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "api": "firebase serve --only functions"
+    "api": "firebase serve --only functions",
+    "serve": "firebase serve --only functions,hosting"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",

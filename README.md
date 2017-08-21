@@ -1,6 +1,6 @@
-# nuxt-pwa
+# NuxtFire Starter
 
-> Nuxt.js project
+> Nuxt.js, Firebase Hosting, & Firebase Functions project
 
 ## Build Setup
 

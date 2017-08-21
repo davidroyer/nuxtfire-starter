@@ -3,7 +3,7 @@ module.exports = {
   ** Build configuration
   */
   generate: {
-    dir: 'dist/client'
+    dir: 'dist/public'
   },
   build: {},
   env: {

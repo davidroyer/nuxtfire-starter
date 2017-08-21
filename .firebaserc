@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "nuxtfireapi",
-    "pwa": "nuxtfireapi"
+    "default": "nuxtfireapi"
   }
 }

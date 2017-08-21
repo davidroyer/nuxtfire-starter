@@ -34,7 +34,7 @@ module.exports = {
     '@nuxtjs/proxy'
   ],
   proxy: [
-    ['/api', { target: 'https://nuxtfireapi.firebaseapp.com' }]
+    ['/api', { target: 'http://localhost:5000/nuxtfireapi/us-central1/api' }]
   ],
   plugins: ['~/plugins/element-ui.js'],
   css: [

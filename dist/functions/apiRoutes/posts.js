@@ -15,8 +15,8 @@ function getPosts() {
   return Posts.once('value').then(snapshot => snapshot.val());
 }
 
-function getPost(key) {
-  let Post = Admin.database().ref('/posts').child(key)
+function getPost(slug) {
+  let Post = Admin.database().ref('/posts').orderByChild('slug').equalTo(slug)
   return Post.once('value').then(snapshot => snapshot.val());
 }
 
@@ -36,9 +36,8 @@ router.get('/posts', function (req, res) {
   });
 })
 
-// About page route
-router.get('/posts/:key', function (req, res) {
-  getPost(req.params.key).then(post => {
+router.get('/posts/:slug', function (req, res) {
+  getPost(req.params.slug).then(post => {
     res.status(200).json(post);
   });
 })

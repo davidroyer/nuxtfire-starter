@@ -2,19 +2,12 @@
   <section class="container">
     <div>
       <logo/>
-      <h1 class="title">
-        NuxtFire API
-      </h1>
+      <h1 class="title">NuxtFire API</h1>
       <ul>
         <li v-for="(post, key) in posts" :key="key">
-        {{post.title}}
+        <nuxt-link :to="`/posts/${post.slug}`">{{post.title}}</nuxt-link>
         </li>
       </ul>
-      <div :class="['network',online ? 'online' : 'offline']">
-        <div class="circle"></div>
-        {{ online ? 'online' : 'offline' }}
-      </div>
-
     </div>
   </section>
 </template>
@@ -30,30 +23,6 @@
       return {
         posts: data
       }
-    },
-
-    data () {
-      return {
-        online: true
-      }
-    },
-    mounted () {
-      if (!window.navigator) {
-        this.online = false
-        return
-      }
-      this.online = Boolean(window.navigator.onLine)
-      window.addEventListener('offline', this._toggleNetworkStatus)
-      window.addEventListener('online', this._toggleNetworkStatus)
-    },
-    methods: {
-      _toggleNetworkStatus ({ type }) {
-        this.online = type === 'online'
-      }
-    },
-    destroyed () {
-      window.removeEventListener('offline', this._toggleNetworkStatus)
-      window.removeEventListener('online', this._toggleNetworkStatus)
     }
   }
 </script>

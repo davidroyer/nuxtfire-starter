@@ -3,7 +3,7 @@
     <div>
       <logo/>
       <h1 class="title">
-        NuxtFireAPI
+        NuxtFire API
       </h1>
       <ul>
         <li v-for="(post, key) in posts" :key="key">

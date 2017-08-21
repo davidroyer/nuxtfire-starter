@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-pwa",
+  "name": "nuxtfire-boilerplate",
   "version": "1.0.0",
   "description": "Nuxt.js project",
   "author": "David Royer <droyer01@gmail.com>",
@@ -16,8 +16,9 @@
   },
   "scripts": {
     "dev": "nuxt",
-    "dev-api": "concurrently \"yarn api\" \"yarn dev\"",
+    "dev-api": "yarn api & yarn dev",
     "build": "nuxt build",
+    "deploy": "firebase deploy",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "old": "concurrently --kill-others-on-fail \"yarn start\" \"yarn generate\"",

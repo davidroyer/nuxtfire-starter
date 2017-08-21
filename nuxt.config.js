@@ -2,6 +2,9 @@ module.exports = {
   /*
   ** Build configuration
   */
+  generate: {
+    dir: 'dist/client'
+  },
   build: {},
   env: {
     // baseUrl: process.env.BASE_URL || 'http://localhost:5000/nuxtfireapi/us-central1/api'

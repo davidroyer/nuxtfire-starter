@@ -45,7 +45,7 @@ router.get('/posts/:key', function (req, res) {
 
 router.post('/posts', function (req, res) {
   addPost(req.body)
-  res.status(200).send('ROUTER: Success!');
+  res.status(200).send('New Post Added');
 })
 
 module.exports = router

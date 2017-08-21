@@ -11,7 +11,8 @@
     "axios": "^0.16.2",
     "concurrently": "^3.5.0",
     "element-ui": "^1.4.1",
-    "nuxt": "latest"
+    "nuxt": "latest",
+    "pm2": "^2.6.1"
   },
   "scripts": {
     "dev": "nuxt",
@@ -19,7 +20,12 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "package": "concurrently --kill-others \"yarn start\" \"yarn generate\"",
+    "old": "concurrently --kill-others-on-fail \"yarn start\" \"yarn generate\"",
+    "test1": "yarn start & yarn generate && exit",
+    "package": "yarn pre-generate && yarn generate && yarn post-generate",
+    "pre-generate": "yarn build && pm2 start npm --name \"nuxtapp\" -- start",
+    "post-generate": "pm2 stop \"nuxtapp\"",
+    "close": "exit",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
     "api": "firebase serve --only functions"
